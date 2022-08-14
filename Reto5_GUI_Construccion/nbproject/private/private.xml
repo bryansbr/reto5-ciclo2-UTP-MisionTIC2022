@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/model/dao/InformacionComprasDao.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/model/dao/InformacionProyectoDao.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/app/App.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/model/dao/InformacionLiderDao.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/controller/ReportesController.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/util/JDBCUtilities.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/model/vo/InformacionProyectoVo.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/view/ReportesView.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/model/vo/InformacionComprasVo.java</file>
+            <file>file:/C:/Users/Bryan/Desktop/Misión%20TIC%202022/MisionTIC2022-R2-UTP_Programacion/Ciclo%202/Reto%205/Reto5_GUI_Construccion/src/reto5/model/vo/InformacionLiderVo.java</file>
+        </group>
+    </open-files>
+</project-private>
