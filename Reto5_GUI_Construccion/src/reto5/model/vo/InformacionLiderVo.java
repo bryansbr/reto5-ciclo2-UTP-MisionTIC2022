@@ -49,5 +49,4 @@ public class InformacionLiderVo {
     public void setCiudadResidencia(String ciudadResidencia) {
         this.ciudadResidencia = ciudadResidencia;
     }
-
 }

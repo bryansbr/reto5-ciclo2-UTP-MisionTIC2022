@@ -18,7 +18,7 @@ public class InformacionComprasDao {
     public List<InformacionComprasVo> listar() throws SQLException {      
         List<InformacionComprasVo> respuesta = new ArrayList<>();
         Connection conn = JDBCUtilities.getConnection();
-        PreparedStatement stm = null;
+        Statement stm = null;
         ResultSet rs = null;
         
         String consulta = """
@@ -36,8 +36,8 @@ public class InformacionComprasDao {
                         """;
         
         try {
-            stm = conn.prepareStatement(consulta);
-            rs = stm.executeQuery();
+            stm = conn.createStatement();
+            rs = stm.executeQuery(consulta);
             
             while(rs.next()) {
                 InformacionComprasVo vo = new InformacionComprasVo();
@@ -51,17 +51,14 @@ public class InformacionComprasDao {
         } finally {
             if(rs != null) {
                 rs.close();
-            }
-            
+            }           
             if(stm != null) {
                stm.close();
-            }
-            
+            }            
             if(conn != null) {
                 conn.close();
             }
         }
-        
         return respuesta;
     }
 }

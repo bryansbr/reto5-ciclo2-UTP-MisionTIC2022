@@ -10,10 +10,10 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
+import reto5.controller.ReportesController;
 import reto5.model.vo.InformacionLiderVo;
 import reto5.model.vo.InformacionComprasVo;
 import reto5.model.vo.InformacionProyectoVo;
-import reto5.controller.ReportesController;
 
 /**
  *
@@ -33,16 +33,16 @@ public final class ReportesView extends JFrame implements ActionListener {
     public ReportesView() {
         controladorReportes = new ReportesController();
         menu(); // Se llama al menu para mostrarlo en pantalla.
-        etiquetaTitulos();
-        etiquetaConsultas();
-        visualizarTabla();
+        etiquetaTitulos(); // Se llama a la etiqueta de los títulos.
+        etiquetaConsultas(); // Se llama a la etiqueta d elas consultas.
+        visualizarTabla(); // Se llama al método que permite visualizar la tabla.
     }
     
     // VISUALIZACIÓN DE LA INFORMACIÓN GRÁFICAMENTE.
     public void menu() {
         barraMenu = new JMenuBar(); // Barra de menu (superior).
         setJMenuBar(barraMenu);
-        menu = new JMenu("LISTA DE INFORMES");
+        menu = new JMenu("LISTA DE INFORMES"); // Título menú.
         barraMenu.add(menu);
         
         // ITEMS
@@ -60,48 +60,34 @@ public final class ReportesView extends JFrame implements ActionListener {
         tercerInforme.addActionListener(this);
     }
     
-    public void etiquetaTitulos() {
+    public void etiquetaTitulos() { // Muestra los labels de los títulos.
         labelTitulo = new JLabel("INFORMES - MINISTERIO DE VIVIENDA");
-        labelTitulo.setPreferredSize(new Dimension(500, 30));
+        labelTitulo.setPreferredSize(new Dimension(500, 50));
         labelTitulo.setFont(new Font("Arial", Font.BOLD, 20));
         add(labelTitulo);
     }
     
-    public void etiquetaConsultas() {
+    public void etiquetaConsultas() { // Muestras los labels de las consultas.
         labelConsulta = new JLabel();
         labelConsulta.setPreferredSize(new Dimension(500, 50));
         labelConsulta.setFont(new Font("Arial", Font.BOLD, 14));
         add(labelConsulta);        
     }
     
-    public void visualizarTabla() {
+    public void visualizarTabla() { // Muestra la tabla y la hace scroleable.
         tabla = new JTable();
-        tabla.setPreferredScrollableViewportSize(new Dimension(500, 300)); // Tabla escroleable
+        tabla.setPreferredScrollableViewportSize(new Dimension(500, 300)); // Tabla escroleable.
         add(tabla);
         JScrollPane panel = new JScrollPane(tabla);
         add(panel);
-        
     }
-    
-    // VISUALIZACIÓN DE LA INFORMACIÓN POR CONSOLA Y GRÁFICAMENTE
-    private String repitaCaracter(Character caracter, Integer veces) {
-        String respuesta = "";
-        
-        for (int i = 0; i < veces; i++) {
-            respuesta += caracter;
-        }
-        return respuesta;
-    }
+ 
     // INFORME 1: Información de los líderes ordenada por ciudad de residencia de forma alfabética.
-    public void infoLideres() {
-        System.out.println(repitaCaracter('=', 7) + " INFORMACIÓN DE LÍDERES "
-                + repitaCaracter('=', 7));
-        System.out.println(String.format("%-7s %-7s %-7s %-2s", "ID Lider", "Nombre", "Primer Apellido", "Ciudad Residencia"));
-        System.out.println(repitaCaracter('-', 41));
-        
-        // Imprimir en pantalla la información de los líderes
+    public void infoLideres() {       
+        // Imprimir en pantalla la información de los líderes.
         try {
             List<InformacionLiderVo> lideres = controladorReportes.listarInformacionLider();
+            
             // Modelo para visualizar los datos.
             modelo = new DefaultTableModel();
             modelo.addColumn("ID Lider");
@@ -117,12 +103,9 @@ public final class ReportesView extends JFrame implements ActionListener {
                 fila[2] = lider.getPrimerApellido();
                 fila[3] = lider.getCiudadResidencia();
                 modelo.addRow(fila); // Se añaden las filas a la tabla.
-                
-                System.out.println(lider.darFormato()); // Muestra información por consola.
             }
             tabla.setModel(modelo);// Se setea el modelo cada vez que se hace una consulta. 
             modelo.fireTableDataChanged(); // Actualización del modelo de la tabla.
-            
         } catch(SQLException e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -130,15 +113,10 @@ public final class ReportesView extends JFrame implements ActionListener {
 
     // INFORME 2: Información de los proyectos "Casa Campestre" en las ciudades de Santa Marta, Cartagena y Barranquilla.
     public void infoProyectos() {
-        System.out.println(repitaCaracter('=', 7) + " INFORMACIÓN DE PROYECTOS "
-                + repitaCaracter('=', 7));
-        
-        System.out.println(String.format("%-7s %-7s %7s %-2s", "ID Proyecto", "Constructora", "Numero Habitaciones", "Ciudad"));
-        System.out.println(repitaCaracter('-', 60));
-
-        // Imprimir en pantalla la información del total adeudado
+        // Imprimir en pantalla la información de los proyectos.
         try {
             List<InformacionProyectoVo> proyectos = controladorReportes.listarInformacionProyecto();
+            
             // Modelo para visualizar los datos.
             modelo = new DefaultTableModel();
             modelo.addColumn("ID Proyecto");
@@ -154,8 +132,6 @@ public final class ReportesView extends JFrame implements ActionListener {
                 fila[2] = proyecto.getNumeroHabitaciones();
                 fila[3] = proyecto.getCiudad();
                 modelo.addRow(fila); // Se añaden las filas a la tabla.
-                
-                System.out.println(proyecto.darFormato()); // Muestra la información por consola.
             }
             tabla.setModel(modelo);// Se setea el modelo cada vez que se hace una consulta. 
             modelo.fireTableDataChanged(); // Actualización del modelo de la tabla.         
@@ -166,15 +142,10 @@ public final class ReportesView extends JFrame implements ActionListener {
 
     // INFORME 3: Información de las compras realizadas por los proyectos con el proveedor "Homecenter" para la ciudad de Salento.
     public void infoCompras() {
-        System.out.println(repitaCaracter('=', 7) + " LISTADO DE COMPRAS "
-                + repitaCaracter('=', 7));
-        
-        //System.out.println(String.format("%3d %-25s %-20s", "ID Compra", "Constructora", "Banco Vinculado"));
-        System.out.println(repitaCaracter('-', 60));
-
-        // Imprimir en pantalla la información del proyecto
+        // Imprimir en pantalla la información de las compras.
         try {
             List<InformacionComprasVo> compras = controladorReportes.listarInformacionCompras();
+            
             // Modelo para visualizar los datos.
             modelo = new DefaultTableModel();
             modelo.addColumn("ID Compra");
@@ -187,13 +158,10 @@ public final class ReportesView extends JFrame implements ActionListener {
                 fila[0] = compra.getIdCompra();
                 fila[1] = compra.getConstructora();
                 fila[2] = compra.getBancoVinculado();
-
                 modelo.addRow(fila); // Se añaden las filas a la tabla.                
-                System.out.println(compra.darFormato());
             }
             tabla.setModel(modelo);// Se setea el modelo cada vez que se hace una consulta. 
             modelo.fireTableDataChanged(); // Actualización del modelo de la tabla.  
-            
         } catch(SQLException e) {
             System.err.println("Error: " + e.getMessage());
         }

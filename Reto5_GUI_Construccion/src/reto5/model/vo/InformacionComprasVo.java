@@ -39,6 +39,5 @@ public class InformacionComprasVo {
 
     public void setBancoVinculado(String bancoVinculado) {
         this.bancoVinculado = bancoVinculado;
-    }    
-    
+    }
 }

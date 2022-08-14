@@ -49,5 +49,4 @@ public class InformacionProyectoVo {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    
 }

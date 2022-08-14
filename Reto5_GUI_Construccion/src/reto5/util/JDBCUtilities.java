@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Bryan
  */
 public class JDBCUtilities {
-    // Atributos de clase para gestión de conexión con la base de datos
+    // Atributos de clase para gestión de conexión con la base de datos.
     private static final String UBICACION_BD = "ProyectosConstruccion.db";
     
     public static Connection getConnection() throws SQLException {

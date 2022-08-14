@@ -50,17 +50,14 @@ public class InformacionLiderDao {
         } finally {
             if(rs != null) {
                 rs.close();
-            }
-            
+            } 
             if(stm != null) {
                stm.close();
-            }
-            
+            } 
             if(conn != null) {
                 conn.close();
             }
         }
-        
         return respuesta;
     }
 }
